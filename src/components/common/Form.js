@@ -3,12 +3,12 @@ import TextField from '@mui/material/TextField/TextField'
 import React from 'react'
 import BasicButtons from './Button'
 
-function BasicTextFields({title}) {
+function BasicTextFields({title, setPassword, setEmail, handleAction}) {
   return (
     <div>
       <div className='heading-container'>
         <h3>
-          Login Form
+          {title} Form
         </h3>
       </div>
       
@@ -20,10 +20,20 @@ function BasicTextFields({title}) {
         noValidate
         autocomplete='off'
         >
-          <TextField id='email' label='Enter the Email' variant='outlined' />
-          <TextField id='password' label="Enter the Password" variant='outlined'></TextField>
+          <TextField 
+            id='email' 
+            label='Enter the Email' 
+            variant='outlined' 
+            onChange={($event) => setEmail($event.target.value)}
+          />
+          <TextField
+            id='password'
+            label="Enter the Password" 
+            variant='outlined'
+            onChange={($event) => setPassword($event.target.value)}
+          />
       </Box>
-      <BasicButtons title={title}/>
+      <BasicButtons title={title} handleAction={handleAction}/>
     </div>
   )
 }

@@ -1,8 +1,9 @@
+import React from 'react'
 import Button from '@mui/material/Button/Button'
 
-function BasicButtons({title}) {
+function BasicButtons({title, handleAction}) {
   return (
-    <Button variant='contained'>{title}</Button>
+    <Button variant='contained' onClick={handleAction}>{title}</Button>
   )
 }
 
